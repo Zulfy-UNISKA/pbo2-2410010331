@@ -1,0 +1,43 @@
+Eksperimen: lakukan satu per satu, amati hasilnya, lalu kembalikan kode seperti semula.
+1. Tambahkan baris Koleksi x = new Koleksi("X01", "Uji", 2026); di method main. Apa pesan error
+dari kompiler dan mengapa?
+2. Pada kelas Buku, ubah nama method hitungDenda menjadi hitungdenda. Apa yang terjadi jika anotasi
+@Override ada, dan jika dihapus?
+3. Tambahkan new Buku("B009", "", 2020, "Anonim"). Apa yang terjadi saat program dijalankan?
+4. Ubah private StatusKoleksi status menjadi public, lalu ubah status B002 langsung dari main
+menjadi TERSEDIA saat masih dipinjam. Aturan apa yang dilanggar?
+
+Jawaban:
+1. Karena abstract harus di implementasikan terlebih dahulu kedalam sebuah class. dan
+juga autocomplete mention kan `Koleksi is abstract; cannot be instantiated`
+
+2. Saat anotasi @Override ada dan method hitungDenda menjadi -> hitungdenda, maka ini akan expect mengimplementasikan
+si `abstract` atau `interface` si superclass yang di extends atau implements. Karena diubah namanya dan tidak ada di parentclass nya
+maka terjadi error. 
+Kalo @Override dihapus, maka itu akan dianggap membuat function biasa dan error masih terjadi karena masih belum full implement si
+parentclass yang telah diatur.
+
+3. Terjadi throw `IllegalArgumentException` dari si `Koleksi.java` karena judul nya tidak terisi (isBlank) dan untuk trace dari debugger:
+--- exec:3.6.3:exec (default-cli) @ p02-perpustakaan-mini ---
+Exception in thread "main" java.lang.IllegalArgumentException: Judul tidak boleh kosong
+	at id.ac.uniska.pbo2.p02.Koleksi.<init>(Koleksi.java:23)
+	at id.ac.uniska.pbo2.p02.Buku.<init>(Buku.java:18)
+	at id.ac.uniska.pbo2.p02.AplikasiPerpustakaan.main(AplikasiPerpustakaan.java:20)
+Command execution failed.
+
+4. Sepengetahuan saya kalo mengubah value class itu harus dilakukan di lingkup class-
+agar integrity data tetap dan tak terubah nilai sendirinya saat punya banyak class. 
+Terus ini membuat masalah buku yang terpinjam malah tersedia kembali, dan menyebabkan data yang benar menjadi tertimpa
+yang asalnya siti rahmah duluan, tapi budi santoso yang mengambil alih jalan takdir dapat bukunya.
+
+> cetakPinjam(perpus, "B002", siti);
+> perpus.cari("B002").status = StatusKoleksi.TERSEDIA;
+> cetakPinjam(perpus, "B002", budi);
+> cetakPinjam(perpus, "M001", budi);
+> System.out.println("Peminjam B002: " + perpus.getPeminjam("B002").nama());
+----------------------------------------
+| Siti Rahmah  meminjam B002: berhasil
+| Budi Santoso meminjam B002: berhasil 
+| Budi Santoso meminjam M001: berhasil
+| Peminjam B002: Budi Santoso <<< Reaksi admin :O
+
