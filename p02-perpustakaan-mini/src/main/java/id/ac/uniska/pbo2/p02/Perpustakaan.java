@@ -74,5 +74,17 @@ public class Perpustakaan {
         return List.copyOf(daftarKoleksi);
     }
     
+    public List<Koleksi> cariJudul(String kataKunci) {
+        List<Koleksi> listJudulYangDicari = new ArrayList<>();
+        
+        for (Koleksi k : daftarKoleksi) {
+            if(k.getJudul().toLowerCase().contains(kataKunci.toLowerCase())) {
+                listJudulYangDicari.add(k);
+            }
+        }
+        System.out.println("Hasil pencarian \""+kataKunci+"\": " + listJudulYangDicari.size() + " koleksi");
+        return listJudulYangDicari;
+    }
+    
     
 }
