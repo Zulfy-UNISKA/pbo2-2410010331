@@ -84,7 +84,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         keteranganLabel.setText("Lengkapi data di bawah ini untuk mendaftar sebagai anggota perpustakaan.");
         headerPanel.add(keteranganLabel);
 
-        getContentPane().add(headerPanel, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(headerPanel, java.awt.BorderLayout.NORTH);
 
         isiPanel.setLayout(new java.awt.BorderLayout());
 
@@ -272,7 +272,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         daftarButton.setText("Daftar");
         tombolPanel.add(daftarButton);
 
-        getContentPane().add(tombolPanel, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(tombolPanel, java.awt.BorderLayout.SOUTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
