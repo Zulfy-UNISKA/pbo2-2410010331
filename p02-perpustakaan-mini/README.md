@@ -1,4 +1,4 @@
-![Result hasil di Netbeans]()
+![Result hasil di Netbeans](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p02-perpustakaan-mini/PBO%202%20-%20Result.png?raw=true)
 
 ---
 Eksperimen: lakukan satu per satu, amati hasilnya, lalu kembalikan kode seperti semula.
