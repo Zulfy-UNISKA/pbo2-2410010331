@@ -41,8 +41,8 @@ cetakPinjam(perpus, "M001", budi);
 System.out.println("Peminjam B002: " + perpus.getPeminjam("B002").nama());
 ```
 ----------------------------------------
-| Siti Rahmah  meminjam B002: berhasil
-| Budi Santoso meminjam B002: berhasil 
-| Budi Santoso meminjam M001: berhasil
-| Peminjam B002: Budi Santoso <<< Reaksi admin :O
+| Siti Rahmah  meminjam B002: berhasil<br>
+| Budi Santoso meminjam B002: berhasil<br>
+| Budi Santoso meminjam M001: berhasil<br>
+| Peminjam B002: Budi Santoso <<< Reaksi admin :O<br>
 
