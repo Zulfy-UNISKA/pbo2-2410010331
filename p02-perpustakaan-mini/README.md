@@ -33,11 +33,13 @@ agar integrity data tetap dan tak terubah nilai sendirinya saat punya banyak cla
 Terus ini membuat masalah buku yang terpinjam malah tersedia kembali, dan menyebabkan data yang benar menjadi tertimpa
 yang asalnya siti rahmah duluan, tapi budi santoso yang mengambil alih jalan takdir dapat bukunya.
 
-> cetakPinjam(perpus, "B002", siti);
-> perpus.cari("B002").status = StatusKoleksi.TERSEDIA;
-> cetakPinjam(perpus, "B002", budi);
-> cetakPinjam(perpus, "M001", budi);
-> System.out.println("Peminjam B002: " + perpus.getPeminjam("B002").nama());
+```java
+cetakPinjam(perpus, "B002", siti);
+perpus.cari("B002").status = StatusKoleksi.TERSEDIA;
+cetakPinjam(perpus, "B002", budi);
+cetakPinjam(perpus, "M001", budi);
+System.out.println("Peminjam B002: " + perpus.getPeminjam("B002").nama());
+```
 ----------------------------------------
 | Siti Rahmah  meminjam B002: berhasil
 | Budi Santoso meminjam B002: berhasil 
