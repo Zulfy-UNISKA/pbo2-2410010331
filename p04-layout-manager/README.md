@@ -43,8 +43,19 @@
         perbedaannya?___ = `formPanel` nya menjadi ke tengah , tidak lagi di atas.
         3. ___Hapus baris setMinimumSize(getSize()) di konstruktor, lalu kecilkan jendela sekecil mungkin. Bagian
         mana yang rusak lebih dulu?___ = bagian `formPanel` jadi tertutup, terus `headerPanel` tertutup dan terakhir bagian `tombolPanel` tak terlihat. sampai tersisa `judul JFrame title saja dengan windows`.
-    - Saran dari teman (Tahap 4):
+    - Saran dari teman (Tahap 4): (Yang diperiksa: Muhammad Diva Saputra)
+        | No | Pemeriksaan | Status |
+        |----|-------------|--------|
+        | 1 | Label singkat, jelas, dan sejajar | Ya |
+        | 2 | Isian dikelompokkan dengan judul bagian | Ya |
+        | 3 | Placeholder dipakai untuk isian yang punya format | Ya |
+        | 4 | Komponen sesuai jenis data | Ya |
+        | 5 | Tombol utama menonjol dan berada di kanan bawah | Ya |
+        | 6 | Jarak antar komponen konsisten | Ya |
+        | 7 | Form tetap rapi saat jendela diperlebar dan ditinggikan | Ya |
+        | 8 | Dibuat dengan JFrame Form dan layout manager, bukan Null/Absolute Layout | Ya |
+
 
 
 - Deklarasi penggunaan AI: sebutkan alat yang dipakai dan untuk keperluan apa, atau buat pernyataan jika tidak memakai AI.
-    - Ya, saya menggunakan ai, untuk apa `anchor` yang kompas, terus `weight x`, terus bagian `D` dan pertanyaan yang tidak paham.
+    - Ya, saya menggunakan ai, untuk apa `anchor` yang kompas, terus `weight x`, terus bagian `D`, Tabel template Readme, dan pertanyaan yang tidak paham.
