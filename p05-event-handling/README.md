@@ -57,9 +57,13 @@
 
 - Tangkapan layar jendela Properties bagian Events untuk tombol Daftar;
 
+    ![Gambar action Event di tombol Daftar Netbeans](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p05-event-handling/property%20action%20daftar.png?raw=true)
+
 - Tangkapan layar dialog ringkasan;
+    ![Gambar ringkasan Dialog JOptionPane Daftar Netbeans](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p05-event-handling/dialog%20ringkasan.png?raw=true)
 
 - Tangkapan layar dialog konfirmasi keluar;
+    ![Gambar ingin keluar dari Program](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p05-event-handling/konfirmasi%20keluar.png?raw=true)
 
 - Deklarasi penggunaan AI: alat yang dipakai dan untuk keperluan apa, atau pernyataan tidak memakai AI.
     - Template table README (males ngetik :))
