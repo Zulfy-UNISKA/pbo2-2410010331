@@ -33,6 +33,7 @@
         Jawab:
         1. **2 pesan**, satu tombol 1 cara agar lebih expected outputnya dan tidak boros. Misal make lebih 2 cara dan di masa depan nanti yang 1 cara itu beda formula nya, maka kita bakal tak sadar output nya berubah (tertimpa) tak sesuai harapan :)
         2. di `tab Design` nambah button `modulusButton` teks nya '%' di sebelah button '/', kemudian actionPerformed `modulusButtonActionPerformed` isinya `hitung('%');`. Dan isi function `hitung()` nya update sedikit menjadi:
+
             ```java
             double hasil = switch (operator) {
                 case '+' -> a + b;
@@ -60,9 +61,11 @@
     ![Gambar action Event di tombol Daftar Netbeans](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p05-event-handling/property%20action%20daftar.png?raw=true)
 
 - Tangkapan layar dialog ringkasan;
+
     ![Gambar ringkasan Dialog JOptionPane Daftar Netbeans](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p05-event-handling/dialog%20ringkasan.png?raw=true)
 
 - Tangkapan layar dialog konfirmasi keluar;
+
     ![Gambar ingin keluar dari Program](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p05-event-handling/konfirmasi%20keluar.png?raw=true)
 
 - Deklarasi penggunaan AI: alat yang dipakai dan untuk keperluan apa, atau pernyataan tidak memakai AI.
