@@ -18,7 +18,15 @@
 
 - Tangkapan layar (screenshot) form dengan pesan kesalahan;
 
+    ![Salah Tipe 1](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p06-validasi-input/Salah%20tipe%201.png?raw=true)
+    ![Salah Tipe 2](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p06-validasi-input/Salah%20tipe%202.png?raw=true)
+
+
+
 - Tangkapan layar (screenshot) jendela Navigator yang memperlihatkan label pesan;
+
+    ![Navigator Label](https://github.com/Zulfy-UNISKA/pbo2-2410010331/blob/main/p06-validasi-input/navigator.png?raw=true)
+
 
 - Jawaban eksperimen Praktikum 4;
     1. Ketik huruf pada isian NPM. Apa yang terjadi dan baris mana di npmFieldKeyTyped yang menyebabkannya?
