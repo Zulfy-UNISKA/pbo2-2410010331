@@ -1,5 +1,4 @@
-    - Foto atau pindaian lembar peer review yang Anda terima dari teman;
-    
+- Foto atau pindaian lembar peer review yang Anda terima dari teman
     | No | Heuristik | Temuan | Skor 0-4 | Saran |
     |:--:|-----------|--------|:--------:|-------|
     | 1 | Visibilitas status sistem | | | |
