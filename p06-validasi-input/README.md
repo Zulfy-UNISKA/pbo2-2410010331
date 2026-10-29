@@ -1,4 +1,5 @@
-- Foto atau pindaian lembar peer review yang Anda terima dari teman;
+    - Foto atau pindaian lembar peer review yang Anda terima dari teman;
+    
     | No | Heuristik | Temuan | Skor 0-4 | Saran |
     |:--:|-----------|--------|:--------:|-------|
     | 1 | Visibilitas status sistem | | | |
@@ -35,6 +36,19 @@
     4. Centang persetujuan, lalu klik Daftar dengan form kosong. Isian mana yang mendapat fokus?
     5. Tekan tombol Alt bersama huruf N. Isian mana yang mendapat fokus, dan properti apa yang mengaturnya?
     6. Isi beberapa isian, lalu klik Batal dan pilih No. Apakah data tetap ada?
+    ---
+    Jawab:
+    1. Baris 395, `!Character.isDigit(evt.getKeyChar())` karakter bukan digit maka `evt.consume()`.
+    ```python
+        if (!Character.isDigit(evt.getKeyChar()) || penuh) {
+            evt.consume(); // karakter tidak dimasukkan ke isian
+        }
+    ```
+    2. Saat Field email ke Tab, action `FocusLost` ke trigger mencek email `periksaEmail()`. kemudian akan diperiksa class Validator masuk ke format belum matches yang akhirnya trigger `Format email belum benar...`
+    3. Jadi `FocusEvent` ada 2 level, _permanent_ dan _temporary_. Kasus nomor tiga lewat `Tab` masuk ke permanent. dan untuk temporary dia ketrigger saat mengerjakan component dan misal ke window minimize dan pindah ke component lainnya trigger event id `(FOCUS_LOST)` yang dimana diharap bakal kembali event id `(FOCUS_GAINED)` ke component asal.
+    4. Isian field NPM.
+    5. Isian field Nama, `namaLabel.setDisplayedMnemonic('N');`
+    6. Masih ada.
 
 - Deklarasi penggunaan AI: alat yang dipakai dan untuk keperluan apa, atau pernyataan tidak memakai AI.
     - Generate template tabel peer review.
