@@ -11,6 +11,15 @@
     6. Ubah deklarasi atribut menjadi private KontakTableModel model; lalu isi model = new
     KontakTableModel(); setelah initComponents(). Jalankan. Pesan error apa yang muncul dan
     mengapa?
+    ---
+    Jawab:
+    1. 
+    2. 
+    3. 
+    4. 
+    5. 
+    6. 
+
 
 - Tautan video demo mini proyek Katalog Buku Perpustakaan (maksimal 3 menit) yang memperlihatkan semua fitur pada tabel bagian D, termasuk sekilas tab Design dan jendela Navigator;
 - Deklarasi penggunaan AI: alat yang dipakai dan untuk keperluan apa, atau pernyataan tidak memakai AI.
