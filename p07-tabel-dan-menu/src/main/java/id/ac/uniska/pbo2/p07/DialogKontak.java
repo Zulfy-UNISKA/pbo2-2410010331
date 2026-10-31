@@ -116,7 +116,7 @@ public class DialogKontak extends javax.swing.JDialog {
         batalButton.addActionListener(this::batalButtonActionPerformed);
         tombolPanel.add(batalButton);
 
-        simpanButton.setText("Daftar");
+        simpanButton.setText("Simpan");
         simpanButton.addActionListener(this::simpanButtonActionPerformed);
         tombolPanel.add(simpanButton);
 

@@ -55,36 +55,44 @@
             <Property name="verticalGap" type="int" value="8"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="namaLabel">
+            <Component class="javax.swing.JLabel" name="kodeLabel">
               <Properties>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="namaField"/>
+                  <ComponentRef name="kodeField"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nama"/>
+                <Property name="text" type="java.lang.String" value="Kode"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="teleponLabel">
+            <Component class="javax.swing.JLabel" name="judulLabel">
               <Properties>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="teleponField"/>
+                  <ComponentRef name="judulField"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Telepon"/>
+                <Property name="text" type="java.lang.String" value="Judul"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="emailLabel">
+            <Component class="javax.swing.JLabel" name="penulisLabel">
               <Properties>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="emailField"/>
+                  <ComponentRef name="penulisField"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Email"/>
+                <Property name="text" type="java.lang.String" value="Penulis"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="kategoriLabel">
+            <Component class="javax.swing.JLabel" name="tahunTerbitLabel">
               <Properties>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="kategoriCombo"/>
+                  <ComponentRef name="default"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Kategori"/>
+                <Property name="text" type="java.lang.String" value="Tahun Terbit"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="statusLabel">
+              <Properties>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="tahunTerbitCombo"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Status"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -102,23 +110,28 @@
             <Property name="verticalGap" type="int" value="8"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="namaField">
+            <Component class="javax.swing.JTextField" name="kodeField">
               <Properties>
                 <Property name="columns" type="int" value="22"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="teleponField">
+            <Component class="javax.swing.JTextField" name="judulField">
             </Component>
-            <Component class="javax.swing.JTextField" name="emailField">
+            <Component class="javax.swing.JTextField" name="penulisField">
             </Component>
-            <Component class="javax.swing.JComboBox" name="kategoriCombo">
+            <Component class="javax.swing.JComboBox" name="tahunTerbitCombo">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="statusCombo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(Kategori.values())" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(Status.values())" type="code"/>
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Kategori&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Status&gt;"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -174,7 +187,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="simpanButton">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Daftar"/>
+                    <Property name="text" type="java.lang.String" value="Simpan"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="simpanButtonActionPerformed"/>

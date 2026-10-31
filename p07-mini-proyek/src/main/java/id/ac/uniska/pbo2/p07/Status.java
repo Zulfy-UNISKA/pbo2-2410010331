@@ -8,15 +8,13 @@ package id.ac.uniska.pbo2.p07;
  *
  * @author USer
  */
-public enum Kategori {
-    KELUARGA("Keluarga"),
-    TEMAN("Teman"),
-    KAMPUS("Kampus"),
-    KERJA("Kerja");
+public enum Status {
+    TERSEDIA("Tersedia"),
+    DIPINJAM("Dipinjam");
     
     private final String label;
     
-    Kategori(String label) {
+    Status(String label) {
         this.label = label;
     }
     

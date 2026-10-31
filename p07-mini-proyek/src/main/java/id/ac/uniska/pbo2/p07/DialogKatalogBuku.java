@@ -6,6 +6,7 @@ package id.ac.uniska.pbo2.p07;
 
 import com.formdev.flatlaf.FlatLaf;
 import java.awt.Color;
+import java.time.Year;
 
 /**
  *
@@ -16,25 +17,22 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DialogKatalogBuku.class.getName());
     private Buku hasil; // tetap null jika pengguna membatalkan
     
-    /**
-    * Membuat dialog tambah atau ubah kontak.
-    *
-    * @param pemilik jendela utama yang dikunci selama dialog terbuka
-    * @param judul judul dialog, misalnya Tambah Buku
-    * @param awal kontak yang akan diubah, atau null untuk kontak baru
-    */
     public DialogKatalogBuku(java.awt.Frame pemilik, String judul, Buku awal) {
         super(pemilik, judul, true); // true berarti modal
         initComponents();
         if (awal != null) {
-            namaField.setText(awal.nama());
-            teleponField.setText(awal.telepon());
-            emailField.setText(awal.email());
-            kategoriCombo.setSelectedItem(awal.kategori());
+            kodeField.setText(awal.kode());
+            judulField.setText(awal.judul());
+            penulisField.setText(awal.penulis());
+            tahunTerbitCombo.setSelectedItem(awal.tahunTerbit());
+            statusCombo.setSelectedItem(awal.status());
         }
-        emailField.putClientProperty("JTextField.placeholderText", "Boleh dikosongkan");
+        penulisField.putClientProperty("JTextField.placeholderText", "Boleh dikosongkan");
         pesanLabel.putClientProperty("FlatLaf.styleClass", "small");
         pesanLabel.setForeground(FlatLaf.isLafDark() ? new Color(0xFF8A80) : new Color(0xC62828));
+        for(int i = 1900; i <= Year.now().getValue(); i++) {
+            tahunTerbitCombo.addItem(String.valueOf(i));
+        }
         getRootPane().setDefaultButton(simpanButton);
         pack();
         setLocationRelativeTo(pemilik);
@@ -51,15 +49,17 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
 
         formPanel = new javax.swing.JPanel();
         labelPanel = new javax.swing.JPanel();
-        namaLabel = new javax.swing.JLabel();
-        teleponLabel = new javax.swing.JLabel();
-        emailLabel = new javax.swing.JLabel();
-        kategoriLabel = new javax.swing.JLabel();
+        kodeLabel = new javax.swing.JLabel();
+        judulLabel = new javax.swing.JLabel();
+        penulisLabel = new javax.swing.JLabel();
+        tahunTerbitLabel = new javax.swing.JLabel();
+        statusLabel = new javax.swing.JLabel();
         isianPanel = new javax.swing.JPanel();
-        namaField = new javax.swing.JTextField();
-        teleponField = new javax.swing.JTextField();
-        emailField = new javax.swing.JTextField();
-        kategoriCombo = new javax.swing.JComboBox<>();
+        kodeField = new javax.swing.JTextField();
+        judulField = new javax.swing.JTextField();
+        penulisField = new javax.swing.JTextField();
+        tahunTerbitCombo = new javax.swing.JComboBox<>();
+        statusCombo = new javax.swing.JComboBox<>();
         bawahPanel = new javax.swing.JPanel();
         pesanLabel = new javax.swing.JLabel();
         tombolPanel = new javax.swing.JPanel();
@@ -74,33 +74,37 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
 
         labelPanel.setLayout(new java.awt.GridLayout(0, 1, 0, 8));
 
-        namaLabel.setLabelFor(namaField);
-        namaLabel.setText("Nama");
-        labelPanel.add(namaLabel);
+        kodeLabel.setLabelFor(kodeField);
+        kodeLabel.setText("Kode");
+        labelPanel.add(kodeLabel);
 
-        teleponLabel.setLabelFor(teleponField);
-        teleponLabel.setText("Telepon");
-        labelPanel.add(teleponLabel);
+        judulLabel.setLabelFor(judulField);
+        judulLabel.setText("Judul");
+        labelPanel.add(judulLabel);
 
-        emailLabel.setLabelFor(emailField);
-        emailLabel.setText("Email");
-        labelPanel.add(emailLabel);
+        penulisLabel.setLabelFor(penulisField);
+        penulisLabel.setText("Penulis");
+        labelPanel.add(penulisLabel);
 
-        kategoriLabel.setLabelFor(kategoriCombo);
-        kategoriLabel.setText("Kategori");
-        labelPanel.add(kategoriLabel);
+        tahunTerbitLabel.setText("Tahun Terbit");
+        labelPanel.add(tahunTerbitLabel);
+
+        statusLabel.setLabelFor(tahunTerbitCombo);
+        statusLabel.setText("Status");
+        labelPanel.add(statusLabel);
 
         formPanel.add(labelPanel, java.awt.BorderLayout.WEST);
 
         isianPanel.setLayout(new java.awt.GridLayout(0, 1, 0, 8));
 
-        namaField.setColumns(22);
-        isianPanel.add(namaField);
-        isianPanel.add(teleponField);
-        isianPanel.add(emailField);
+        kodeField.setColumns(22);
+        isianPanel.add(kodeField);
+        isianPanel.add(judulField);
+        isianPanel.add(penulisField);
+        isianPanel.add(tahunTerbitCombo);
 
-        kategoriCombo.setModel(new javax.swing.DefaultComboBoxModel<>(Kategori.values()));
-        isianPanel.add(kategoriCombo);
+        statusCombo.setModel(new javax.swing.DefaultComboBoxModel<>(Status.values()));
+        isianPanel.add(statusCombo);
 
         formPanel.add(isianPanel, java.awt.BorderLayout.CENTER);
 
@@ -116,7 +120,7 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
         batalButton.addActionListener(this::batalButtonActionPerformed);
         tombolPanel.add(batalButton);
 
-        simpanButton.setText("Daftar");
+        simpanButton.setText("Simpan");
         simpanButton.addActionListener(this::simpanButtonActionPerformed);
         tombolPanel.add(simpanButton);
 
@@ -140,20 +144,22 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
     }//GEN-LAST:event_simpanButtonActionPerformed
 
     private void simpan() {
-        String nama = namaField.getText().trim();
-        String telepon = teleponField.getText().trim();
-        if (nama.isEmpty()) {
-            pesanLabel.setText("Nama wajib diisi");
-            namaField.requestFocusInWindow();
+        String kode = kodeField.getText().trim();
+        String judul = judulField.getText().trim();
+        String penulis = penulisField.getText().trim();
+        if (kode.isEmpty()) {
+            pesanLabel.setText("Kode wajib diisi");
+            kodeField.requestFocusInWindow();
             return;
         }
-        if (!telepon.matches("\\d{10,13}")) {
-            pesanLabel.setText("Telepon berisi 10 sampai 13 digit angka");
-            teleponField.requestFocusInWindow();
+        if (judul.isEmpty()) {
+            pesanLabel.setText("Judul wajib diisi");
+            judulField.requestFocusInWindow();
             return;
         }
-        Kategori kategori = (Kategori) kategoriCombo.getSelectedItem();
-        hasil = new Buku(nama, telepon, emailField.getText().trim(), kategori);
+        Status status = (Status) tahunTerbitCombo.getSelectedItem();
+        hasil = new Buku(kode, judul, penulis, (String) tahunTerbitCombo.getSelectedItem(), status);
+        
         dispose();
     }
     
@@ -167,19 +173,21 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton batalButton;
     private javax.swing.JPanel bawahPanel;
-    private javax.swing.JTextField emailField;
-    private javax.swing.JLabel emailLabel;
     private javax.swing.JPanel formPanel;
     private javax.swing.JPanel isianPanel;
-    private javax.swing.JComboBox<Kategori> kategoriCombo;
-    private javax.swing.JLabel kategoriLabel;
+    private javax.swing.JTextField judulField;
+    private javax.swing.JLabel judulLabel;
+    private javax.swing.JTextField kodeField;
+    private javax.swing.JLabel kodeLabel;
     private javax.swing.JPanel labelPanel;
-    private javax.swing.JTextField namaField;
-    private javax.swing.JLabel namaLabel;
+    private javax.swing.JTextField penulisField;
+    private javax.swing.JLabel penulisLabel;
     private javax.swing.JLabel pesanLabel;
     private javax.swing.JButton simpanButton;
-    private javax.swing.JTextField teleponField;
-    private javax.swing.JLabel teleponLabel;
+    private javax.swing.JComboBox<Status> statusCombo;
+    private javax.swing.JLabel statusLabel;
+    private javax.swing.JComboBox<String> tahunTerbitCombo;
+    private javax.swing.JLabel tahunTerbitLabel;
     private javax.swing.JPanel tombolPanel;
     // End of variables declaration//GEN-END:variables
 }

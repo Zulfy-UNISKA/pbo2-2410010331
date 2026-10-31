@@ -8,5 +8,5 @@ package id.ac.uniska.pbo2.p07;
  *
  * @author USer
  */
-public record Buku(String nama, String telepon, String email, Kategori kategori) {
+public record Buku(String kode, String judul, String penulis, String tahunTerbit, Status status) {
 }

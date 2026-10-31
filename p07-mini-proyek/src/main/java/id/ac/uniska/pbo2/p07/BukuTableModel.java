@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class BukuTableModel extends AbstractTableModel {
     
-    private static final String[] KOLOM = {"Nama", "Telepon", "Email", "Kategori"};
+    private static final String[] KOLOM = {"Kode", "Judul", "Penulis", "Tahun Terbit", "Status"};
     private final List<Buku> daftar = new ArrayList<>();
     
     @Override
@@ -36,10 +36,11 @@ public class BukuTableModel extends AbstractTableModel {
     public Object getValueAt(int baris, int kolom) {
         Buku k = daftar.get(baris);
         return switch(kolom) {
-            case 0 -> k.nama();
-            case 1 -> k.telepon();
-            case 2 -> k.email();
-            default -> k.kategori();
+            case 0 -> k.kode();
+            case 1 -> k.judul();
+            case 2 -> k.penulis();
+            case 3 -> k.tahunTerbit();
+            default -> k.status();
         };
     }
     

@@ -29,13 +29,13 @@ public class KatalogBuku extends javax.swing.JFrame {
         
         // Kode tambahan yang tidak tersedia di jendela Properties
         cariField.putClientProperty("JTextField.placeholderText", "Cari nama, telepon, email");
-        kontakTable.setRowSorter(sorter); // klik judul kolom untuk mengurutkan
-        kontakTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        kontakTable.getColumnModel().getColumn(0).setPreferredWidth(170);
-        kontakTable.getColumnModel().getColumn(2).setPreferredWidth(200);
+        bukuTable.setRowSorter(sorter); // klik judul kolom untuk mengurutkan
+        bukuTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        bukuTable.getColumnModel().getColumn(0).setPreferredWidth(170);
+        bukuTable.getColumnModel().getColumn(2).setPreferredWidth(200);
         
         // Tombol Ubah dan Hapus hanya aktif jika ada baris yang dipilih
-        kontakTable.getSelectionModel().addListSelectionListener(e -> perbaruiTombol());
+        bukuTable.getSelectionModel().addListSelectionListener(e -> perbaruiTombol());
         
         isiContoh();
         perbaruiTombol();
@@ -61,7 +61,7 @@ public class KatalogBuku extends javax.swing.JFrame {
         cariField = new javax.swing.JTextField();
         tabelPanel = new javax.swing.JPanel();
         tabelScroll = new javax.swing.JScrollPane();
-        kontakTable = new javax.swing.JTable();
+        bukuTable = new javax.swing.JTable();
         statusLabel = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -109,13 +109,13 @@ public class KatalogBuku extends javax.swing.JFrame {
         tabelPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 12, 0, 12));
         tabelPanel.setLayout(new java.awt.BorderLayout());
 
-        kontakTable.setModel(model);
-        kontakTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        bukuTable.setModel(model);
+        bukuTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kontakTableMouseClicked(evt);
+                bukuTableMouseClicked(evt);
             }
         });
-        tabelScroll.setViewportView(kontakTable);
+        tabelScroll.setViewportView(bukuTable);
 
         tabelPanel.add(tabelScroll, java.awt.BorderLayout.CENTER);
 
@@ -190,13 +190,13 @@ public class KatalogBuku extends javax.swing.JFrame {
         saring();
     }//GEN-LAST:event_cariFieldKeyReleased
 
-    private void kontakTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kontakTableMouseClicked
+    private void bukuTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bukuTableMouseClicked
         // TODO add your handling code here:
         // Klik dua kali pada baris untuk mengubah kontak
-        if (evt.getClickCount() == 2 && kontakTable.getSelectedRow() >= 0) {
+        if (evt.getClickCount() == 2 && bukuTable.getSelectedRow() >= 0) {
         ubah();
 }
-    }//GEN-LAST:event_kontakTableMouseClicked
+    }//GEN-LAST:event_bukuTableMouseClicked
 
     private void keluarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarItemActionPerformed
         // TODO add your handling code here:
@@ -226,11 +226,11 @@ public class KatalogBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_tentangItemActionPerformed
 
     private void isiContoh() {
-        model.tambah(new Buku("Siti Rahmah", "081234567890", "siti@contoh.com", Kategori.KAMPUS));
-        model.tambah(new Buku("Budi Santoso", "082112345678", "budi@contoh.com", Kategori.TEMAN));
-        model.tambah(new Buku("Ahmad Fauzi", "085398765432", "", Kategori.KELUARGA));
-        model.tambah(new Buku("Nur Aisyah", "081355512345", "aisyah@contoh.com", Kategori.KAMPUS));
-        model.tambah(new Buku("Rizky Pratama", "087812341234", "rizky@contoh.com", Kategori.KERJA));
+        model.tambah(new Buku("B001", "Belajar PHP", "Independen Author", "2024", Status.TERSEDIA));
+        model.tambah(new Buku("B002", "Belajar Framework Laravel", "Independen Author", "2022", Status.TERSEDIA));
+        model.tambah(new Buku("B003", "Belajar Database", "Independen Author", "2023", Status.DIPINJAM));
+        model.tambah(new Buku("B004", "Belajar Statistika", "Independen Author", "2025", Status.TERSEDIA));
+        model.tambah(new Buku("B005", "Belajar Defence Network", "Independen Author", "2021", Status.DIPINJAM));
     }
     private void saring() {
         String kata = cariField.getText().trim();
@@ -247,15 +247,15 @@ public class KatalogBuku extends javax.swing.JFrame {
     * karena tabel dapat diurutkan dan disaring.
     */
     private int barisTerpilih() {
-        int barisTampilan = kontakTable.getSelectedRow();
+        int barisTampilan = bukuTable.getSelectedRow();
         if (barisTampilan < 0) {
             return -1;
         }
-        return kontakTable.convertRowIndexToModel(barisTampilan);
+        return bukuTable.convertRowIndexToModel(barisTampilan);
     }
     
     private void tambah() {
-    Buku baru = new DialogKatalogBuku(this, "Tambah Kontak", null).tampilkan();
+    Buku baru = new DialogKatalogBuku(this, "Tambah Buku", null).tampilkan();
         if (baru != null) {
             model.tambah(baru);
             perbaruiStatus();
@@ -267,7 +267,7 @@ public class KatalogBuku extends javax.swing.JFrame {
         if (baris < 0) {
             return;
         }
-        Buku hasil = new DialogKatalogBuku(this, "Ubah Kontak", model.get(baris)).tampilkan();
+        Buku hasil = new DialogKatalogBuku(this, "Ubah Buku", model.get(baris)).tampilkan();
         if (hasil != null) {
             model.ubah(baris, hasil);
         }
@@ -278,8 +278,8 @@ public class KatalogBuku extends javax.swing.JFrame {
         if (baris < 0) {
             return;
         }
-        String nama = model.get(baris).nama();
-        int jawab = JOptionPane.showConfirmDialog(this, "Hapus kontak " + nama + "?",
+        String judul = model.get(baris).judul();
+        int jawab = JOptionPane.showConfirmDialog(this, "Hapus buku " + judul + "?",
         "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (jawab == JOptionPane.YES_OPTION) {
             model.hapus(baris);
@@ -288,7 +288,7 @@ public class KatalogBuku extends javax.swing.JFrame {
     }
     
     private void perbaruiTombol() {
-        boolean adaPilihan = kontakTable.getSelectedRow() >= 0;
+        boolean adaPilihan = bukuTable.getSelectedRow() >= 0;
         ubahButton.setEnabled(adaPilihan);
         hapusButton.setEnabled(adaPilihan);
         ubahItem.setEnabled(adaPilihan);
@@ -296,8 +296,19 @@ public class KatalogBuku extends javax.swing.JFrame {
     }
     
     private void perbaruiStatus() {
-        statusLabel.setText("Menampilkan " + kontakTable.getRowCount()
-        + " dari " + model.getRowCount() + " kontak");
+        int tampil = bukuTable.getRowCount();
+        int tersedia = 0;
+
+        for (int i = 0; i < tampil; i++) {
+            int m = bukuTable.convertRowIndexToModel(i);
+            Object status = model.getValueAt(m, 4);
+            if (status != null && "Tersedia".equalsIgnoreCase(status.toString())) {
+                tersedia++;
+            }
+        }
+
+        statusLabel.setText("Menampilkan " + tampil + " dari " + model.getRowCount()
+                + " buku, " + tersedia + " tersedia");
     }
 
     
@@ -317,6 +328,7 @@ public class KatalogBuku extends javax.swing.JFrame {
     private javax.swing.JMenuBar Menu;
     private javax.swing.JPanel atasPanel;
     private javax.swing.JMenu bantuanMenu;
+    private javax.swing.JTable bukuTable;
     private javax.swing.JTextField cariField;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton hapusButton;
@@ -324,7 +336,6 @@ public class KatalogBuku extends javax.swing.JFrame {
     private javax.swing.JMenuItem keluarItem;
     private javax.swing.JMenu kontakMenu;
     private javax.swing.JPopupMenu.Separator kontakSeparator;
-    private javax.swing.JTable kontakTable;
     private javax.swing.JLabel statusLabel;
     private javax.swing.JPanel tabelPanel;
     private javax.swing.JScrollPane tabelScroll;

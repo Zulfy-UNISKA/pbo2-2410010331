@@ -23,3 +23,4 @@
 
 - Tautan video demo mini proyek Katalog Buku Perpustakaan (maksimal 3 menit) yang memperlihatkan semua fitur pada tabel bagian D, termasuk sekilas tab Design dan jendela Navigator;
 - Deklarasi penggunaan AI: alat yang dipakai dan untuk keperluan apa, atau pernyataan tidak memakai AI.
+    - perbaharuiStatus kode cek tersedia.
