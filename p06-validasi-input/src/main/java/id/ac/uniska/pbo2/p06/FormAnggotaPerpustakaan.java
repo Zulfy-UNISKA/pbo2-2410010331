@@ -7,6 +7,7 @@ package id.ac.uniska.pbo2.p06;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import javax.swing.JRadioButton;
 import java.util.List;
@@ -142,6 +143,11 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         formPanel.add(npmLabel, gridBagConstraints);
 
         npmField.setToolTipText("Hanya angka, tepat 10 digit");
+        npmField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                npmFieldFocusLost(evt);
+            }
+        });
         npmField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 npmFieldKeyTyped(evt);
@@ -174,6 +180,12 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 8, 0, 12);
         formPanel.add(namaLabel, gridBagConstraints);
+
+        namaField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                namaFieldFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
@@ -202,6 +214,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         formPanel.add(programStudiLabel, gridBagConstraints);
 
         programStudiCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih program studi", "Teknik Informatika", "Sistem Informasi", "Manajemen Informatika" }));
+        programStudiCombo.addItemListener(this::programStudiComboItemStateChanged);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
@@ -267,6 +280,12 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 8, 0, 0);
         formPanel.add(emailLabel, gridBagConstraints);
+
+        emailField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                emailFieldFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 11;
@@ -293,6 +312,11 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 8, 0, 0);
         formPanel.add(hpLabel, gridBagConstraints);
 
+        hpField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                hpFieldFocusLost(evt);
+            }
+        });
         hpField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 hpFieldKeyTyped(evt);
@@ -484,6 +508,41 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         
         npmField.requestFocusInWindow();
     }//GEN-LAST:event_batalButtonActionPerformed
+
+    private void npmFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_npmFieldFocusLost
+        // TODO add your handling code here:
+        if (!npmField.getText().isBlank()) {
+            periksaNpm();
+        }
+    }//GEN-LAST:event_npmFieldFocusLost
+
+    private void namaFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_namaFieldFocusLost
+        // TODO add your handling code here:
+        if (!namaField.getText().isBlank()) {
+            periksaNama();
+        }
+    }//GEN-LAST:event_namaFieldFocusLost
+
+    private void programStudiComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_programStudiComboItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            periksaProdi();
+        }
+    }//GEN-LAST:event_programStudiComboItemStateChanged
+
+    private void emailFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFieldFocusLost
+        // TODO add your handling code here:
+        if (!emailField.getText().isBlank()) {
+            periksaEmail();
+        }
+    }//GEN-LAST:event_emailFieldFocusLost
+
+    private void hpFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_hpFieldFocusLost
+        // TODO add your handling code here:
+        if (!hpField.getText().isBlank()) {
+            periksaHp();
+        }
+    }//GEN-LAST:event_hpFieldFocusLost
 
     private boolean periksaNpm() {
         return tandai(npmField, npmPesanLabel, Validator.npm(npmField.getText()));
