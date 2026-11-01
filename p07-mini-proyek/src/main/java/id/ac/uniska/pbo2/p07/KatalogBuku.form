@@ -20,10 +20,10 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="kontakMenu">
+        <Menu class="javax.swing.JMenu" name="bukuMenu">
           <Properties>
             <Property name="mnemonic" type="int" value="75"/>
-            <Property name="text" type="java.lang.String" value="Kontak"/>
+            <Property name="text" type="java.lang.String" value="Buku"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="tambahItem">
@@ -48,7 +48,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ubahItemActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="kontakSeparator">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="bukuSeparator">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="hapusItem">
               <Properties>
@@ -84,7 +84,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Daftar Kontak"/>
+    <Property name="title" type="java.lang.String" value="Katalog Buku"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="Menu"/>

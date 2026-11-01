@@ -1,26 +1,12 @@
-- Eksperimen 5:
-    1. Di KontakTableModel, jadikan baris fireTableRowsInserted(baris, baris); sebagai komentar, lalu
-    tambah kontak baru. Apakah tabel langsung berubah?
-    2. Di method barisTerpilih, ganti isinya menjadi return kontakTable.getSelectedRow();. Cari kata
-    "ah", pilih Ahmad Fauzi, lalu klik Hapus dan pilih No. Nama siapa yang muncul di dialog konfirmasi?
-    3. Di konstruktor DialogKontak, ubah super(pemilik, judul, true) menjadi false. Saat dialog terbuka,
-    coba klik jendela utama. Apa yang terjadi pada kontak yang ditambahkan?
-    4. Tekan Ctrl+N, Ctrl+E, dan Ctrl+D. Mengapa Ctrl+E dan Ctrl+D tidak bekerja saat tidak ada baris yang dipilih?
-    5. Di tab Design, ubah accelerator hapusItem menjadi tombol Delete tanpa Ctrl. Baris apa yang berubah di
-    initComponents()?
-    6. Ubah deklarasi atribut menjadi private KontakTableModel model; lalu isi model = new
-    KontakTableModel(); setelah initComponents(). Jalankan. Pesan error apa yang muncul dan
-    mengapa?
-    ---
-    Jawab:
-    1. 
-    2. 
-    3. 
-    4. 
-    5. 
-    6. 
-
-
 - Tautan video demo mini proyek Katalog Buku Perpustakaan (maksimal 3 menit) yang memperlihatkan semua fitur pada tabel bagian D, termasuk sekilas tab Design dan jendela Navigator;
+    - Video demo: https://drive.google.com/file/d/1h0llvpc9-ssDJeCutMepcV_3LadtzWk6/view?usp=sharing
 - Deklarasi penggunaan AI: alat yang dipakai dan untuk keperluan apa, atau pernyataan tidak memakai AI.
     - perbaharuiStatus kode cek tersedia.
+    - menanyakan bug tahunTerbitField tidak terset, ternyata for() masukkin input tahun ke combo setelah setCombo, terus letakkin ke sebelum setCombo baru mau.
+        ```java
+        for(int i = 1900; i <= Year.now().getValue(); i++) {
+                tahunTerbitCombo.addItem(String.valueOf(i));
+        }
+
+        tahunTerbitCombo.setSelectedItem(awal.tahunTerbit());
+        ```

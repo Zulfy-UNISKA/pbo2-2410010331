@@ -20,6 +20,9 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
     public DialogKatalogBuku(java.awt.Frame pemilik, String judul, Buku awal) {
         super(pemilik, judul, true); // true berarti modal
         initComponents();
+        for(int i = 1900; i <= Year.now().getValue(); i++) {
+            tahunTerbitCombo.addItem(String.valueOf(i));
+        }
         if (awal != null) {
             kodeField.setText(awal.kode());
             judulField.setText(awal.judul());
@@ -30,9 +33,6 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
         penulisField.putClientProperty("JTextField.placeholderText", "Boleh dikosongkan");
         pesanLabel.putClientProperty("FlatLaf.styleClass", "small");
         pesanLabel.setForeground(FlatLaf.isLafDark() ? new Color(0xFF8A80) : new Color(0xC62828));
-        for(int i = 1900; i <= Year.now().getValue(); i++) {
-            tahunTerbitCombo.addItem(String.valueOf(i));
-        }
         getRootPane().setDefaultButton(simpanButton);
         pack();
         setLocationRelativeTo(pemilik);
@@ -157,8 +157,8 @@ public class DialogKatalogBuku extends javax.swing.JDialog {
             judulField.requestFocusInWindow();
             return;
         }
-        Status status = (Status) tahunTerbitCombo.getSelectedItem();
-        hasil = new Buku(kode, judul, penulis, (String) tahunTerbitCombo.getSelectedItem(), status);
+        Status status = (Status) statusCombo.getSelectedItem();
+        hasil = new Buku(kode, judul, penulis, (String) tahunTerbitCombo.getSelectedItem().toString(), status);
         
         dispose();
     }

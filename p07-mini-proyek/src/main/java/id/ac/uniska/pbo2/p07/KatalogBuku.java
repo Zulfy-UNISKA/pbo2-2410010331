@@ -22,13 +22,13 @@ public class KatalogBuku extends javax.swing.JFrame {
     private final TableRowSorter<BukuTableModel> sorter = new TableRowSorter<>(model);
     
     /**
-     * Creates new form AplikasiKontak
+     * Creates new form KatalogBuku
      */
     public KatalogBuku() {
         initComponents();
         
         // Kode tambahan yang tidak tersedia di jendela Properties
-        cariField.putClientProperty("JTextField.placeholderText", "Cari nama, telepon, email");
+        cariField.putClientProperty("JTextField.placeholderText", "Cari kode, judul, penulis");
         bukuTable.setRowSorter(sorter); // klik judul kolom untuk mengurutkan
         bukuTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         bukuTable.getColumnModel().getColumn(0).setPreferredWidth(170);
@@ -66,16 +66,16 @@ public class KatalogBuku extends javax.swing.JFrame {
         Menu = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         keluarItem = new javax.swing.JMenuItem();
-        kontakMenu = new javax.swing.JMenu();
+        bukuMenu = new javax.swing.JMenu();
         tambahItem = new javax.swing.JMenuItem();
         ubahItem = new javax.swing.JMenuItem();
-        kontakSeparator = new javax.swing.JPopupMenu.Separator();
+        bukuSeparator = new javax.swing.JPopupMenu.Separator();
         hapusItem = new javax.swing.JMenuItem();
         bantuanMenu = new javax.swing.JMenu();
         tentangItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Daftar Kontak");
+        setTitle("Katalog Buku");
 
         atasPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 4, 8, 12));
         atasPanel.setLayout(new java.awt.BorderLayout(8, 0));
@@ -134,26 +134,26 @@ public class KatalogBuku extends javax.swing.JFrame {
 
         Menu.add(fileMenu);
 
-        kontakMenu.setMnemonic('K');
-        kontakMenu.setText("Kontak");
+        bukuMenu.setMnemonic('K');
+        bukuMenu.setText("Buku");
 
         tambahItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         tambahItem.setText("Tambah");
         tambahItem.addActionListener(this::tambahItemActionPerformed);
-        kontakMenu.add(tambahItem);
+        bukuMenu.add(tambahItem);
 
         ubahItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         ubahItem.setText("Ubah");
         ubahItem.addActionListener(this::ubahItemActionPerformed);
-        kontakMenu.add(ubahItem);
-        kontakMenu.add(kontakSeparator);
+        bukuMenu.add(ubahItem);
+        bukuMenu.add(bukuSeparator);
 
         hapusItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         hapusItem.setText("Hapus");
         hapusItem.addActionListener(this::hapusItemActionPerformed);
-        kontakMenu.add(hapusItem);
+        bukuMenu.add(hapusItem);
 
-        Menu.add(kontakMenu);
+        Menu.add(bukuMenu);
 
         bantuanMenu.setMnemonic('B');
         bantuanMenu.setText("Bantuan");
@@ -192,7 +192,7 @@ public class KatalogBuku extends javax.swing.JFrame {
 
     private void bukuTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bukuTableMouseClicked
         // TODO add your handling code here:
-        // Klik dua kali pada baris untuk mengubah kontak
+        // Klik dua kali pada baris untuk mengubah buku
         if (evt.getClickCount() == 2 && bukuTable.getSelectedRow() >= 0) {
         ubah();
 }
@@ -226,11 +226,11 @@ public class KatalogBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_tentangItemActionPerformed
 
     private void isiContoh() {
-        model.tambah(new Buku("B001", "Belajar PHP", "Independen Author", "2024", Status.TERSEDIA));
-        model.tambah(new Buku("B002", "Belajar Framework Laravel", "Independen Author", "2022", Status.TERSEDIA));
-        model.tambah(new Buku("B003", "Belajar Database", "Independen Author", "2023", Status.DIPINJAM));
-        model.tambah(new Buku("B004", "Belajar Statistika", "Independen Author", "2025", Status.TERSEDIA));
-        model.tambah(new Buku("B005", "Belajar Defence Network", "Independen Author", "2021", Status.DIPINJAM));
+        model.tambah(new Buku("B001", "Belajar PHP", "Budi Santoso", "2024", Status.TERSEDIA));
+        model.tambah(new Buku("B002", "Belajar Framework Laravel", "Dewi Lestari", "2022", Status.TERSEDIA));
+        model.tambah(new Buku("B003", "Belajar Database", "Siti Rahmawati", "2023", Status.DIPINJAM));
+        model.tambah(new Buku("B004", "Belajar Statistika", "Keita Sara", "2025", Status.TERSEDIA));
+        model.tambah(new Buku("B005", "Belajar Defence Network", "Made Wirawan", "2021", Status.DIPINJAM));
     }
     private void saring() {
         String kata = cariField.getText().trim();
@@ -328,14 +328,14 @@ public class KatalogBuku extends javax.swing.JFrame {
     private javax.swing.JMenuBar Menu;
     private javax.swing.JPanel atasPanel;
     private javax.swing.JMenu bantuanMenu;
+    private javax.swing.JMenu bukuMenu;
+    private javax.swing.JPopupMenu.Separator bukuSeparator;
     private javax.swing.JTable bukuTable;
     private javax.swing.JTextField cariField;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton hapusButton;
     private javax.swing.JMenuItem hapusItem;
     private javax.swing.JMenuItem keluarItem;
-    private javax.swing.JMenu kontakMenu;
-    private javax.swing.JPopupMenu.Separator kontakSeparator;
     private javax.swing.JLabel statusLabel;
     private javax.swing.JPanel tabelPanel;
     private javax.swing.JScrollPane tabelScroll;

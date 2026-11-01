@@ -48,14 +48,14 @@ public class BukuTableModel extends AbstractTableModel {
         return daftar.get(baris);
     }
     
-    public void tambah(Buku kontak) {
-        daftar.add(kontak);
+    public void tambah(Buku buku) {
+        daftar.add(buku);
         int baris = daftar.size() - 1;
         fireTableRowsInserted(baris, baris); // tampilkan baris baru
     }
     
-    public void ubah(int baris, Buku kontak) {
-        daftar.set(baris, kontak);
+    public void ubah(int baris, Buku buku) {
+        daftar.set(baris, buku);
         fireTableRowsUpdated(baris, baris);
     }
     
