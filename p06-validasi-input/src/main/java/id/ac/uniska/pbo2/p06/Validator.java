@@ -38,6 +38,9 @@ public final class Validator {
         if(nama.trim().length() < 3) {
             return "Nama minimal 3 huruf";
         }
+        if (nama.matches(".*\\d.*")) {
+            return "Nama tidak boleh mengandung angka";
+        }
         return null;
     }
     

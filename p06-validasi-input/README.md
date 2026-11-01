@@ -51,3 +51,4 @@
 
 - Deklarasi penggunaan AI: alat yang dipakai dan untuk keperluan apa, atau pernyataan tidak memakai AI.
     - Generate template tabel peer review.
+    - Kode regex nama angka dan contoh validasi nama angka salah
