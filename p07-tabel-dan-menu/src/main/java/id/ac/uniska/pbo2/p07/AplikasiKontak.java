@@ -18,9 +18,7 @@ import javax.swing.table.TableRowSorter;
 public class AplikasiKontak extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AplikasiKontak.class.getName());
-//    private final KontakTableModel model = new KontakTableModel();
-    private KontakTableModel model;
-    
+    private final KontakTableModel model = new KontakTableModel();
     private final TableRowSorter<KontakTableModel> sorter = new TableRowSorter<>(model);
     
     /**
@@ -28,7 +26,6 @@ public class AplikasiKontak extends javax.swing.JFrame {
      */
     public AplikasiKontak() {
         initComponents();
-        model = new KontakTableModel();
         
         // Kode tambahan yang tidak tersedia di jendela Properties
         cariField.putClientProperty("JTextField.placeholderText", "Cari nama, telepon, email");
