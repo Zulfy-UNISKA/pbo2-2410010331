@@ -178,21 +178,25 @@ public class RekapNilai extends javax.swing.JFrame {
         if (!npm.matches("\\d{10}")) {
             pesanLabel.setText("NPM harus berisi 10 digit angka");
             npmField.requestFocusInWindow();
+            tandai(npmField, pesanLabel, "NPM harus berisi 10 digit angka");
             return;
         }
         if (!tugas.matches("\\d{0,100}")) {
             pesanLabel.setText("Nilai Tugas harus antara 0 sampai 100");
             tugasField.requestFocusInWindow();
+            tandai(tugasField, pesanLabel, "Nilai Tugas harus antara 0 sampai 100");
             return;
         }
         if (!uts.matches("\\d{0,100}")) {
             pesanLabel.setText("Nilai UTS harus antara 0 sampai 100");
             utsField.requestFocusInWindow();
+            tandai(utsField, pesanLabel, "Nilai UTS harus antara 0 sampai 100");
             return;
         }
         if (!uas.matches("\\d{0,100}")) {
             pesanLabel.setText("Nilai UAS harus antara 0 sampai 100");
             uasField.requestFocusInWindow();
+            tandai(uasField, pesanLabel, "Nilai UAS harus antara 0 sampai 100");
             return;
         }
         
@@ -217,6 +221,8 @@ public class RekapNilai extends javax.swing.JFrame {
         Rekap hasil = new Rekap(npm, namaField.getText().trim(), tugas, uts, uas, String.valueOf(nilaiAkhir), huruf);
         
         model.tambah(hasil);
+        tabelPesan.setText("Jumlah mahasiswa: " + model.getRowCount() + ", rata-rata nilai akhir: " + "...");
+        bersihkan();
     }
     
     private void bersihkan() {
