@@ -35,6 +35,9 @@ public class RekapNilai extends javax.swing.JFrame {
         utsField.putClientProperty("JTextField.placeholderText", "0 sampai 100");
         uasField.putClientProperty("JTextField.placeholderText", "0 sampai 100");
         
+        
+        pack();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -192,11 +195,15 @@ public class RekapNilai extends javax.swing.JFrame {
             uasField.requestFocusInWindow();
             return;
         }
-      
-        double nilaiTugas = Double.parseDouble(tugasField.getText()) * (30 / 100);
-        double nilaiUTS = Double.parseDouble(utsField.getText()) * (30 / 100);
-        double nilaiUAS = Double.parseDouble(uasField.getText()) * (40 / 100);
-        double nilaiAkhir = nilaiTugas + nilaiUTS + nilaiUAS;
+        
+        double nilaiTugas = Double.parseDouble(tugasField.getText());
+        double nilaiUTS = Double.parseDouble(utsField.getText()) ;
+        double nilaiUAS = Double.parseDouble(uasField.getText());
+        System.out.println(nilaiTugas);
+        System.out.println(nilaiUTS);
+        System.out.println(nilaiUAS);
+        double nilaiAkhir = (nilaiTugas * (30.0 / 100.0)) + (nilaiUTS * (30.0 / 100.0)) + (nilaiUAS  * (40.0 / 100.0));
+        System.out.println("TUGAS AKHIR : " + nilaiAkhir);
         
         String huruf = "";
         if(nilaiAkhir >= 80 && nilaiAkhir <= 100) huruf = "A";
@@ -210,7 +217,6 @@ public class RekapNilai extends javax.swing.JFrame {
         Rekap hasil = new Rekap(npm, namaField.getText().trim(), tugas, uts, uas, String.valueOf(nilaiAkhir), huruf);
         
         model.tambah(hasil);
-        dispose();
     }
     
     private void bersihkan() {
